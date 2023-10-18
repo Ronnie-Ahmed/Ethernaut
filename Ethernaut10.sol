@@ -9,7 +9,7 @@ contract Reentrance {
     mapping(address => uint) public balances;
 
     function donate(address _to) public payable {
-        balances[_to] = balances[_to].add(msg.value);
+        balances[_to] = balances[_to] + (msg.value);
     }
 
     function balanceOf(address _who) public view returns (uint balance) {
