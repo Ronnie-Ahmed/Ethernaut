@@ -7,8 +7,6 @@ import "openzeppelin-contracts-08/token/ERC20/ERC20.sol";
 import "openzeppelin-contracts-08/access/Ownable.sol";
 
 //0x8e2E7e6Ba07751Cc4eB2FB8ACeFAa46F8E783682 contract address;
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
 
 //token1=0xAD4d79cd26a67c4916B7C96f921D54CEdF320ef6
 //token2=0x6FAE440d02d0C80f3355aC78A8684B636664104c
